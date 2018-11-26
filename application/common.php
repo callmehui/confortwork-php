@@ -15,20 +15,19 @@
  * 接口返回结果处理方法
  */
 function setReturnObj($errcode, $result=null, $message=''){
-  echo $message;
   if ($errcode === 200 && !is_null($result)) {
     $data = new StdClass();
-    $data->errocde = $errcode;
+    $data->errcode = $errcode;
     $data->result = $result;
     return $data;
   } else if ($errcode === 200 && is_null($result) && $message !=='') {
     $data = new StdClass();
-    $data->errocde = $errcode;
+    $data->errcode = $errcode;
     $data->message = $message;
     return $data;
   } else if ($errcode !== 200 && $message !=='') {
     $data = new StdClass();
-    $data->errocde = $errcode;
+    $data->errcode = $errcode;
     $data->message = $message;
     return $data;
   }
